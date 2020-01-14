@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('bd/connexionDB.php');
+require('Database/coDatabase.php');
 
 if (isset($_SESSION['id']))
 {
@@ -13,11 +13,12 @@ if (!empty($_POST))
     extract($_POST);
     $valid = true;
 
-    if (isset($_POST['inscription']))
-    {
+    if (isset($_POST['form_inscription']))
+    { 
+        echo 'le login est '.$_POST['login'].' et le mail est '.$_POST['email'].' et le mdp est '.$_POST['passwd'].' et le confmdp est '.$_POST['confmdp'];
         $login = htmlentities(trim($login));
-        $mail = htmlentities(strtolower(trim($mail)));
-        $mdp = trim(($mdp));
+        $email = htmlentities(strtolower(trim($email)));
+        $passwd = trim(($passwd));
         $confmdp = trim($confmdp);
     }
 
@@ -27,12 +28,12 @@ if (!empty($_POST))
         $er_login = "le login ne peut pas etre vide fdp";
     }
 
-    if (empty($mail))
+    if (empty($email))
     {
         $valid = false;
         $er_mail = "ce mail ne peut pas etre vide fdp";
     }
-    else if (!preg_match("/^[a-z0-9\-_.]+@[a-z]+\.[a-z]{2,3}$/i", $mail))
+    else if (!preg_match("/^[a-z0-9\-_.]+@[a-z]+\.[a-z]{2,3}$/i", $email))
     {
         $valid = false;
         $er_mail = "ce mail n est pas valide fdp";
@@ -49,12 +50,12 @@ if (!empty($_POST))
         }
     }
     
-    if (empty($mdp) || empty($confmdp))
+    if (empty($passwd) || empty($confmdp))
     {
         $valid = false;
         $er_mdp = "le mot de passe ne doit pas etre vide";
     }
-    else if ($mdp != $confmdp)
+    else if ($passwd != $confmdp)
     {
         $valid = false;
         $er_mdp = "la confirmation du mdp ne correspond PAS";
@@ -62,11 +63,10 @@ if (!empty($_POST))
 }
     if ($valid == TRUE)
     {
+        $passwd = crypt($mdp, "$6$rounds=5000$macleapersonnaliseretagardersecret$"); // pas sur si il faut le mettre ici ou avant la DB
         $date_account = date('Y-m-d H:i:s');
-        $DB->insert("INSERT INTO utilisateur (login, mail, mdp, date_account) VALUES (?,?,?,?)",
+        $DB->insert("INSERT INTO users (login, mail, mdp, date_account) VALUES (?,?,?,?)",
         array($login, $mail, $mdp, $date_account));
-
-        $mdp = crypt($mdp, "$6$rounds=5000$macleapersonnaliseretagardersecret$"); // pas sur si il faut le mettre ici ou avant la DB
 
         header('Location: index.php)');
         exit;
