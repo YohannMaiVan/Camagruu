@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('Database/coDatabase.php');
+require (__DIR__ .'/model/user.php');
 
 if (isset($_SESSION['id']))
 {
@@ -15,7 +16,7 @@ if (!empty($_POST))
 
     if (isset($_POST['form_inscription']))
     { 
-        echo 'le login est '.$_POST['login'].' et le mail est '.$_POST['email'].' et le mdp est '.$_POST['passwd'].' et le confmdp est '.$_POST['confmdp'];
+       // echo 'le login est '.$_POST['login'].' et le mail est '.$_POST['email'].' et le mdp est '.$_POST['passwd'].' et le confmdp est '.$_POST['confmdp'];
         $login = htmlentities(trim($login));
         $email = htmlentities(strtolower(trim($email)));
         $passwd = trim(($passwd));
@@ -38,9 +39,11 @@ if (!empty($_POST))
         $valid = false;
         $er_mail = "ce mail n est pas valide fdp";
     }
-    else
+    //TO DO: Checker si le MAIL nest pas deja pris dans la BDD
+ /*   else
     {
-        $req_mail = $DB->query("SELECT mail from utilisateur WHERE mail = ?", array($mail));
+       // $req_mail = $bdd->query("SELECT mail from users WHERE mail = ?", array($mail));
+        $req_mail = $bdd->query("SELECT mail from users WHERE mail = ?", array($mail));
         $req_mail = $req_mail->fetch();
 
         if ($req_mail['mail'] != "")
@@ -49,6 +52,7 @@ if (!empty($_POST))
             $er_mail = "ce mail existe deja";
         }
     }
+    */
     
     if (empty($passwd) || empty($confmdp))
     {
@@ -63,11 +67,9 @@ if (!empty($_POST))
 }
     if ($valid == TRUE)
     {
-        $passwd = crypt($mdp, "$6$rounds=5000$macleapersonnaliseretagardersecret$"); // pas sur si il faut le mettre ici ou avant la DB
-        $date_account = date('Y-m-d H:i:s');
-        $DB->insert("INSERT INTO users (login, mail, mdp, date_account) VALUES (?,?,?,?)",
-        array($login, $mail, $mdp, $date_account));
-
+        $cryptedpasswd = crypt($passwd, "$6$rounds=5000$macleapersonnaliseretagardersecret$"); // pas sur si il faut le mettre ici ou avant la DB
+        $date_user = date('Y-m-d H:i:s');
+        user::insert_user($login, $cryptedpasswd, $email, $date_user);
         header('Location: index.php)');
         exit;
     }
