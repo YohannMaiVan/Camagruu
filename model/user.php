@@ -47,10 +47,11 @@ public static function createStatement($sql) {
 		}
 		public static function connect_user()
 		{
-			$loginconnect = htmlentities(trim($_POST['login']));
+			$loginconnect = htmlspecialchars(trim($_POST['login']));
 			$passwordconnect = crypt($_POST['passwd'], "$6$rounds=5000$macleapersonnaliseretagardersecret$"); // pas sur si il faut le mettre ici ou avant la DB
+			echo '<br/>EVALUATION DES VARIABLES: la variable $post passswd vaut <' .$_POST['passwd'] . '> <br/> La variuable passwordconnect vaut ' .$passwordconnect;
 			$requser = self::createStatement("SELECT * FROM users WHERE user =? AND passwd =?");
-			$requser->execute(array($mailconnect, $passwordconnect));
+			$requser->execute(array($loginconnect, $passwordconnect));
 			return $requser;
 		}
   }

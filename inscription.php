@@ -17,8 +17,8 @@ if (!empty($_POST))
     if (isset($_POST['form_inscription']))
     { 
        // echo 'le login est '.$_POST['login'].' et le mail est '.$_POST['email'].' et le mdp est '.$_POST['passwd'].' et le confmdp est '.$_POST['confmdp'];
-        $login = htmlentities(trim($login));
-        $email = htmlentities(strtolower(trim($email)));
+        $login = htmlspecialchars(trim($login));
+        $email = htmlspecialchars(strtolower(trim($email)));
         $passwd = trim(($passwd));
         $confmdp = trim($confmdp);
     }
