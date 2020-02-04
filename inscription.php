@@ -9,36 +9,56 @@ if (isset($_SESSION['id']))
     exit;
 }
 
-if (!empty($_POST))
+if (isset($_POST['form_inscription']))
 {
-    extract($_POST);
-    $valid = true;
-
-    if (isset($_POST['form_inscription']))
-    { 
-       // echo 'le login est '.$_POST['login'].' et le mail est '.$_POST['email'].' et le mdp est '.$_POST['passwd'].' et le confmdp est '.$_POST['confmdp'];
-        $login = htmlspecialchars(trim($login));
-        $email = htmlspecialchars(strtolower(trim($email)));
-        $passwd = trim(($passwd));
-        $confmdp = trim($confmdp);
-    }
-
-    if (empty($login))
+    // echo 'le login est '.$_POST['login'].' et le mail est '.$_POST['email'].' et le mdp est '.$_POST['passwd'].' et le confmdp est '.$_POST['confmdp'];
+if(isset($_POST['login']) AND isset($_POST['mail']) AND isset($_POST['passwd']) AND isset($_POST['confmdp']))
     {
-        $valid = false;
-        $er_login = "le login ne peut pas etre vide fdp";
+      $login = htmlspecialchars(trim($_POST['login']));
+      $mail = htmlspecialchars(strtolower(trim($_POST['mail'])));
+      $password = trim($_POST['passwd']);
+      $password2 = trim($_POST['confmdp']);
+      $pseudolength = strlen($login);
+      if ($pseudolength <= 255)
+      {
+        if (preg_match("/^[a-z0-9\-_.]+@[a-z]+\.[a-z]{2,3}$/i", $mail))
+        {
+            if ($password==$password2)
+            {
+              $password = password_hash($password, PASSWORD_DEFAULT);
+              $date_user = date('Y-m-d H:i:s');
+              user::insert_user($login, $password, $mail, $date_user);
+              $erreur = "Votre compte a bien été crée";
+
+            }
+            else
+            {
+              $erreur = "Vos mots de passe ne sont pas identiques";
+            }
+        }
+        else
+        {
+          $erreur = "Votre adresse mail n'est pas valide!";
+        }
+      }
+      else
+      {
+          $erreur = "Votre nom ne doit pas dépasser les 255 caractères";
+      }
     }
 
-    if (empty($email))
+    else
     {
-        $valid = false;
-        $er_mail = "ce mail ne peut pas etre vide fdp";
+      $erreur = "Tous les champs doivent être remplis";
     }
-    else if (!preg_match("/^[a-z0-9\-_.]+@[a-z]+\.[a-z]{2,3}$/i", $email))
-    {
-        $valid = false;
-        $er_mail = "ce mail n est pas valide fdp";
-    }
+}
+
+if(isset ($erreur))
+{
+  echo $erreur;
+}
+
+//require ('../view/inscription.html.php');
     //TO DO: Checker si le MAIL nest pas deja pris dans la BDD
  /*   else
     {
@@ -53,25 +73,5 @@ if (!empty($_POST))
         }
     }
     */
-    
-    if (empty($passwd) || empty($confmdp))
-    {
-        $valid = false;
-        $er_mdp = "le mot de passe ne doit pas etre vide";
-    }
-    else if ($passwd != $confmdp)
-    {
-        $valid = false;
-        $er_mdp = "la confirmation du mdp ne correspond PAS";
-    }
-}
-    if ($valid == TRUE)
-    {
-        $cryptedpasswd = crypt($passwd, "$6$rounds=5000$macleapersonnaliseretagardersecret$"); // pas sur si il faut le mettre ici ou avant la DB
-        $date_user = date('Y-m-d H:i:s');
-        user::insert_user($login, $cryptedpasswd, $email, $date_user);
-        header('Location: index.php)');
-        exit;
-    }
 ?>
 
