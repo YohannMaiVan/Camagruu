@@ -25,9 +25,36 @@ if(isset($_POST['login']) AND isset($_POST['mail']) AND isset($_POST['passwd']) 
         {
             if ($password==$password2)
             {
+              $key = 0;
+              for($i=1; $i<12; $i++)
+                $key .= mt_rand(0, 9);
               $password = password_hash($password, PASSWORD_DEFAULT);
               $date_user = date('Y-m-d H:i:s');
-              user::insert_user($login, $password, $mail, $date_user);
+              user::insert_user($login, $password, $mail, $date_user, $key);
+
+              $emailFrom = 'test@camagru.com';
+              $header="MIME-Version: 1.0\r\n";
+              $header.= "From: " . $emailFrom . "\r\n";
+              $header.='Content-Type:text/html; charset="uft-8"'."\n";
+              $header.='Content-Transfer-Encoding: 8bit';
+              $message='
+              <html>
+                 <body>
+                    <div align="center">
+                       <a href="http://localhost/Camagru/confirmation.php?pseudo='.urlencode($login).'&key='.$key.'">Confirmez votre compte !</a>
+                    </div>
+                 </body>
+              </html>';
+
+              // use wordwrap() if lines are longer than 70 characters
+              $message = wordwrap($message,70);
+              $success = mail($mail, "CAMAGRU Confirmation de compte", $message, $header);
+              if (!$success) {
+              $errorMessage = error_get_last()['message'];
+              echo "ERREUR LORS DE LENVOI DU MAIL";
+              }
+              //mail($mail, "Confirmation de compte", $message, $header);
+              
               $erreur = "Votre compte a bien été crée";
 
             }

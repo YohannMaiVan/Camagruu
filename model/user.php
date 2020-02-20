@@ -23,14 +23,15 @@ public static function createStatement($sql) {
     return $pdo_statement;
 }
 // WHERE id="'.$workouts['user_id'].'"'
-		public static function insert_user($login, $passwd, $email, $date_user)
+		public static function insert_user($login, $passwd, $email, $date_user, $confirmkey)
 		{
 			  try {
-			$pdo_statement = self::createStatement('INSERT INTO users (user, passwd, mail, date_user) VALUES (:login, :passwd, :email, :date_user)');
+			$pdo_statement = self::createStatement('INSERT INTO users (user, passwd, mail, date_user, confirmkey) VALUES (:login, :passwd, :email, :date_user, :confirmkey)');
 			$pdo_statement->bindparam(':login', $login) &&
 			$pdo_statement->bindparam(':passwd', $passwd) &&
 			$pdo_statement->bindparam(':email', $email) &&
-			$pdo_statement->bindparam(':date_user', $date_user) &&			
+			$pdo_statement->bindparam(':date_user', $date_user) &&
+			$pdo_statement->bindparam(':confirmkey', $confirmkey) &&
 			$pdo_statement->execute();
 		} catch (PDOException $e) { die('Erreur : ' . $e->getMessage());
 
