@@ -38,6 +38,8 @@ public static function createStatement($sql) {
 		}
 		return $pdo_statement;
 		}
+
+
 		public static function profil_user()
 		{
 			$getid = intval($_GET['id']);
@@ -46,12 +48,40 @@ public static function createStatement($sql) {
 			$userinfo = $requser->fetch();
 			return $userinfo;
 		}
+
+
 		public static function connect_user()
 		{
-			$loginconnect = htmlspecialchars(trim($_POST['login']));
-			$passwordconnect = crypt($_POST['passwd'], "$6$rounds=5000$macleapersonnaliseretagardersecret$"); // pas sur si il faut le mettre ici ou avant la DB
-			$requser = self::createStatement("SELECT * FROM users WHERE user =? AND passwd =?");
-			$requser->execute(array($loginconnect, $passwordconnect));
-			return $requser;
-		}
-  }
+			global $login;
+	
+			$req = self::createStatement("SELECT * FROM users WHERE user = ?");
+			$req->bindparam(1, $login);
+			$req->execute(array($login));
+			$resultat = $req->fetch();
+			return $resultat;
+	}
+
+	public static function confirm_account()
+	{
+		global $pseudo;
+		global $key;
+		$req = self::createStatement("SELECT * FROM users WHERE user = ? AND confirmkey = ?");
+		$req->execute(array($pseudo, $key));
+		$userexist = $req->rowCount();
+		if($userexist == 1) {
+      $user = $req->fetch();
+      if($user['confirm_account'] == 0) {
+         $updateuser = self::createStatement("UPDATE users SET confirm_account = 1 WHERE user = ? AND confirmkey = ?");
+         $updateuser->execute(array($pseudo,$key));
+         echo "Votre compte a bien été confirmé !";
+      } else {
+         echo "Votre compte a déjà été confirmé !";
+      }
+   } else {
+      echo "L'utilisateur n'existe pas !";
+   }
+
+
+
+	}
+}

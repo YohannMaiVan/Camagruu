@@ -34,7 +34,7 @@ if(isset($_POST['login']) AND isset($_POST['mail']) AND isset($_POST['passwd']) 
 
               $emailFrom = 'test@camagru.com';
               $header="MIME-Version: 1.0\r\n";
-              $header.= "From: " . $emailFrom . "\r\n";
+              $header.= "From: " . $emailFrom . "\n";
               $header.='Content-Type:text/html; charset="uft-8"'."\n";
               $header.='Content-Transfer-Encoding: 8bit';
               $message='
