@@ -1,10 +1,10 @@
 <?php
-	//session_start();
+	session_start();
 	require('Database/coDatabase.php');
 	require (__DIR__ .'/model/user.php');
 
   // S'il y a une session alors on ne retourne plus sur cette page  
-    if (isset($_SESSION['id'])){
+    if (isset($_SESSION['login'])){
         header('Location: index.php');
         exit;
     }
@@ -59,9 +59,11 @@
 			{
 					if ($isPasswordCorrect && $valid === true) {
 
-							session_start();
+							//session_start();
 							$_SESSION['login'] = $resultat['user'];
 							$_SESSION['mail'] = $resultat['mail'];
+							header('Location: index.php');
+							exit;
 							echo 'Vous êtes connecté !';
 					}
 			else 

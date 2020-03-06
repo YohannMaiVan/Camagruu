@@ -42,11 +42,36 @@ public static function createStatement($sql) {
 
 		public static function profil_user()
 		{
-			$getid = intval($_GET['id']);
-			$requser = self::createStatement('SELECT * FROM users where id = ?');
-			$requser->execute(array($getid));
+			$requser = self::createStatement('SELECT * FROM users where user = ?');
+			$requser->execute(array($_SESSION['login']));
 			$userinfo = $requser->fetch();
 			return $userinfo;
+		}
+
+		public static function update_login()
+		{
+			global $newpseudo;
+			$updatelogin = self::createStatement('UPDATE users SET user = ? where user = ?');
+			$updatelogin->execute(array($newpseudo, $_SESSION['login']));
+			return $updatelogin;
+		}
+
+		public static function update_mail()
+		{
+			global $newmail;
+			$updatemail = self::createStatement('UPDATE users SET mail = ? WHERE user = ?');
+			$updatemail->execute(array($newmail, $_SESSION['login']));
+			return $updatemail;
+		}
+
+		public static function update_pwd()
+		{
+			global $pass1;
+			$pass1 = password_hash($pass1, PASSWORD_DEFAULT);
+
+			$updatepwd = self::createStatement('UPDATE users SET passwd = ? WHERE user = ?');
+			$updatepwd->execute(array($pass1, $_SESSION['login']));
+			return $updatepwd;
 		}
 
 
