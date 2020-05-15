@@ -15,7 +15,9 @@ function setup($dbh,$dbname)
     passwd VARCHAR(255) NOT NULL,
     mail VARCHAR(128) NOT NULL,
     date_user DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
-    confirm_account INT(1) NOT NULL DEFAULT 0
+    confirmkey TEXT NOT NULL,
+    confirm_account INT(1) NOT NULL DEFAULT 0,
+    n_mdp INT(1) NOT NULL DEFAULT 0
         )";
     $result = $dbh->exec($sql);
 

@@ -11,7 +11,13 @@
     // Si la variable "$_Post" contient des informations alors on les traite
     if(!empty($_POST)){
         extract($_POST);
-        $valid = true;
+		$valid = true;
+		
+		//$login = htmlspecialchars(trim($login));
+		$req = ("UPDATE users SET n_mdp = 0 WHERE user = ?");
+		$nmdp = user::createStatement($req);
+		$nmdp->bindParam(1, $login);
+		$nmdp->execute();
  
         if (isset($_POST['form_connexion'])){
 			$login = htmlspecialchars(trim($login));
