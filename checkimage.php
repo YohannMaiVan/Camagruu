@@ -1,4 +1,7 @@
 <?php
+
+require "merge.php";
+
 $img = $_POST['data'];
 $img = str_replace('data:image/png;base64,', '', $img);
 $img = str_replace(' ', '+', $img);

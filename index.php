@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
-?>
+require "merge.php";?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
