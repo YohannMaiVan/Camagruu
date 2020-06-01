@@ -30,7 +30,7 @@ require "merge.php";?>
                 </div>
                 <div class="z section-menu-images"> 
                     <div class="z canvas">
-                        <canvas id="canvas" width="450px" height="400px"></canvas>
+                        <canvas id="canvas" width="600px" height="450px"></canvas>
                     </div>    
                     <div class="z filter">
                         <div>

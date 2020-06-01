@@ -2,17 +2,19 @@
  # If you know your originals are of type PNG.
  $dest = imagecreatefrompng("photo.png");
  //$dest = imagealphablending($dest, true);
- $source = imagecreatefrompng("img/vegeta_burned.png");
+ $source = imagecreatefrompng("img/kenny.png");
 
  //$dest_image = imagecreatetruecolor(200, 170);
  //$source = imagesavealpha($dest_image, true);
 
  $width                        =    imagesx ( $source );
  $height                       =    imagesy ( $source );
- $offsetX = imagesx($dest) / 2;
+ $offsetX = imagesx($dest) / 4;
+ $offsetY = imagesy($dest) / 4;
+
 
  imagecolortransparent($source);
- imagecopy($dest, $source, $offsetX, 0, 0, 0, $width, $height);
+ imagecopy($dest, $source, $offsetX, $offsetY, 0, 0, $width, $height);
 
  # Save the image to a file
 
