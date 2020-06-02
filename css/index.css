@@ -7,6 +7,8 @@
     flex-direction: row;
     height: 120px;
     justify-content: space-between;
+    background-color: rgb(137, 200, 216);
+    
 }
 
 .header-menu {

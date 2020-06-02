@@ -25,7 +25,7 @@ require "merge.php";?>
             <div class="separator"></div>
             <div class="section-menu">
                 <div class="z section-menu__cam">
-                    <div ><video id="video" width="100%" height="100%" autoplay></video></div>
+                    <div ><video id="video" width="400px" height="400px" autoplay></video></div>
                     <div><button id="snap" disabled>Snap Photo</button></div>
                 </div>
                 <div class="z section-menu-images"> 
