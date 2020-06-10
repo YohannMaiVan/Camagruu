@@ -50,6 +50,12 @@ require "merge.php";?>
                     <div class="z section-menu__cam">
                         <div><video id="video" width="300px" height="300px" autoplay></video></div>
                         <div><button id="snap" disabled>Snap Photo</button></div>
+                        <div class="upload">
+                            <form action="upload.php" method="post" enctype="multipart/form-data">
+                            <input type="file" name="fileToUpload" id="fileToUpload">
+                            <input type="submit" value="Upload Image" name="submit">
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="z section-menu-images"> 

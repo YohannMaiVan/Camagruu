@@ -3,43 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/menu.css">
     <title>Document</title>
 </head>
 <body class='z site'>
         <div class="z header">
-            <div>
-                &nbsp;
-            </div>
-            <div class="z header-menu">
-                <div class="z button btn btn-light">
-                    <a href="inscription.html.php">S'inscrire</a>
+            <div class=" header__menu">
+                <div class="square_btn">
+                    <a href="inscription.html.php">S'inscrire</a>&nbsp;&nbsp;
                 </div>
-                <div class="z button btn btn-light">
-                    <a href="connexion.html">Se connecter</a>
+                <div class="square_btn">
+                    <a href="connexion.html">Se connecter</a>&nbsp;&nbsp;
                 </div>
-                <div class="z button btn btn-light">
-                    <a href="forget_pwd.html">Mot de passe oublié</a>
-                </div>
-            </div>
-            <div>
-                <div class="header-logo__2">
-                    <img src="img/logo2.png" alt="logo2" height="100" width="100">
+                <div class="square_btn">
+                    <a href="forget_pwd.html">Mot de passe oublié</a>&nbsp;&nbsp;
                 </div>
             </div>
         </div>
-
         <div class="z section">
-            <div class="separator"></div>
-            <div class="section-menu">
-                <div class="z section-menu__cam">
-                    <div ><video id="video" width="640" height="480" autoplay></video></div>
-                    <div><button id="snap">Snap Photo</button></div>
-                </div>
-                <div class="z section-menu-images">         
-                    <canvas id="canvas" width="640" height="480"></canvas>
-                </div>
-             </div>
+            <div class="formu">
+                <div class="connect"><h1>Connecte toi bg</h1></div>
+                <form method="POST" action="connexion.php">
+                <div class="pseudo"><label for="pseudo">Identifiant: <br></label><input type="text" name="login" id="pseudo"><br></div>
+                <div class="mdp"><label for="mdp">Mot de passe: <br></label><input type="password" name="passwd" id="mdp"><br></div>
+                <div class="submit"><input type="submit" name="form_connexion" value="Se connecter"/><br></div>
+                </form>
+            </div>
         </div>
         <div class="z footer">
             <div>Camagru</div>

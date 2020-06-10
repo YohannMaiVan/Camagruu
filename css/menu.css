@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    height: 80px;
+    height: 55px;
     background-color: rgb(136, 163, 170);
 }
 
@@ -28,25 +28,6 @@
 	box-shadow: none;
 }
 
-.header-menu {
-display: flex;
-flex-direction: row;
-justify-content: space-evenly;
-align-items: center;
-order: 2;
-flex-wrap: wrap;
-}
-
-.button {
-    height: 12px;
-    width: 12px;
-}
-
-.header-logo__2 {
-    order: 1;
-    padding: 10px 0px 10px 0px;
-}
-
 /*----------------------SECTION---------------------- */
 
 .separator {
@@ -62,44 +43,14 @@ flex-wrap: wrap;
 .section {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     height: 550px;
     align-items: center;
     flex-grow: 1;
-}
-
-.section-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    height: 100%;
-    width: 100%;
-}
-
-.section-menu__cam {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.section-menu-images {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 50%;
-}
-
-.menu-img {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.section__img {
-padding: 5px 0px;
+    background-image:url(../img/rond.jpg);
+    background-repeat: no-repeat;
+    background-size: 700px;
+    background-position: center;
 }
 
 .footer {
@@ -115,25 +66,28 @@ padding: 5px 0px;
         flex-direction: column;
 }
 
-.filter {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-.section-left {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 40%;
-box-shadow: 5px 5px 15px 5px #000000;
-}
-
 .center {
     margin: 10px 0px;
 }
 
-.upload {
-    padding: 30px 40px;
+.formu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 15px 5px #09af78;
+    height: 160px;
+    width: 340px;
+    
+}
+
+.pseudo {
+    padding: 0px 80px; 
+}
+
+.mdp {
+    padding: 0px 55px; 
+}
+
+.submit {
+    padding: 0px 160px; 
 }
