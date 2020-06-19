@@ -106,7 +106,5 @@ public static function createStatement($sql) {
       echo "L'utilisateur n'existe pas !";
    }
 
-
-
 	}
 }

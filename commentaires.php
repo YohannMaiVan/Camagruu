@@ -6,7 +6,6 @@ header('Content-Type: text/html; charset=utf-8');
 if (isset ($_GET['id']) && !empty($_GET['id'])) {
 	$getid = htmlspecialchars($_GET['id']);
 	$picture = gallery::getPicture();
-	var_dump($picture);
 }
 
 if (isset($_POST['submit_com'])) {

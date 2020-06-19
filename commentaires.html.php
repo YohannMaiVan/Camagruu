@@ -11,17 +11,12 @@
             <div>
                 &nbsp;
             </div>
-            <div class="z header-menu">
-                <div class="z button btn btn-light">
-                    <a href="inscription.html.php">S'inscrire</a>
+            <div class="header__menu">
+                <a href="index.php" class="square_btn">Accueil</a>&nbsp;                    
+                <a href="profil.php" id="profile" class="square_btn">Mon profil</a>&nbsp;
+                <a href="galerie.php" class="square_btn">Galerie</a>&nbsp;
+                <a href="deconnexion.php" class="square_btn">Se déconnecter</a>&nbsp;                
                 </div>
-                <div class="z button btn btn-light">
-                    <a href="connexion.html">Se connecter</a>
-                </div>
-                <div class="z button btn btn-light">
-                    <a href="forget_pwd.html">Mot de passe oublié</a>
-                </div>
-            </div>
             <div>
                 <div class="header-logo__2">
                     <img src="img/logo2.png" alt="logo2" height="100" width="100">

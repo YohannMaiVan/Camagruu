@@ -1,19 +1,42 @@
-  
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="flexmodel.css">
-    <title>Connexion</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <title>index</title>
 </head>
-<body>
-    <h1>Se connecter</h1>
-    <form method="POST" action="connexion.php">
-        <label for="pseudo">Identifiant: <br></label><input type="text" name="login" id="pseudo"><br>
-        <label for="mdp">Mot de passe: <br></label><input type="password" name="passwd" id="mdp"><br>
-        <input type="submit" name="form_connexion" value="Se connecter"/><br>
-        <a href="forget_pwd.html" id="connexion-cancel-button"><span>Mot de passe oublié?</span></a><br>
-        <a href="index.php" id="home"><span>Retour page d'accueil</span></a>
-    </form>
+<body class='z site'>
+        <div class="z header">
+            <div class=" header__menu">
+                <div class="square_btn">
+                    <a href="inscription.html.php">S'inscrire</a>&nbsp;&nbsp;
+                </div>
+                <div class="square_btn">
+                    <a href="connexion.html">Se connecter</a>&nbsp;&nbsp;
+                </div>
+                <div class="square_btn">
+                    <a href="forget_pwd.html">Mot de passe oublié</a>&nbsp;&nbsp;
+                </div>
+                <div class="square_btn">
+                    <a href="index.php" id="home"><span>Retour page d'accueil</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="z section">
+            <div class="formu">
+                <div class="connect"><h1>Connecte toi bg</h1></div>
+                <form method="POST" action="connexion.php">
+                <div class="pseudo"><label for="pseudo">Identifiant: <br></label><input type="text" name="login" id="pseudo"><br></div>
+                <div class="mdp"><label for="mdp">Mot de passe: <br></label><input type="password" name="passwd" id="mdp"><br></div>
+                <div class="submit"><input type="submit" name="form_connexion" value="Se connecter"/><br></div>
+                </form>
+            </div>
+        </div>
+        <div class="z footer">
+            <div>Camagru</div>
+         <div>&copy;2020</div>
+        </div>
+        <script src="JS/cam.js"></script>
 </body>
 </html>

@@ -1,0 +1,81 @@
+.z{
+    border: 1px solid rgb(39, 34, 34);
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 72px;
+    background-color: rgb(136, 163, 170);
+}
+
+.header__menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.square_btn{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+    color: #799dec;
+    text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
+}
+.square_btn:active {
+    top: 4px;
+	box-shadow: none;
+}
+
+/*----------------------SECTION---------------------- */
+
+.separator {
+    padding: 2px 0px;
+    margin: 5px 0px;
+    height: 2px;
+    width: 5%;
+    border: none;
+    box-shadow: none;
+    background-color: rgb(60, 61, 61);
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 550px;
+    align-items: center;
+    flex-grow: 1;
+    background-image:url(../img/rond.jpg);
+    background-repeat: no-repeat;
+    background-size: 700px;
+    background-position: center;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(159, 159, 172);
+}
+
+.site { 
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+}
+
+.formu {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 15px 5px #09af78;
+    padding: 4px;
+    text-align: center;
+}
+
+
+.form2 {
+    display: flex;
+    flex-direction: column;
+}
