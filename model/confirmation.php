@@ -1,5 +1,4 @@
 <?php
-
 require('Database/coDatabase.php');
 require (__DIR__ .'/model/user.php');
 

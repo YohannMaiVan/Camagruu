@@ -2,34 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="flexmodel.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/forgetpwd.css">
     <title>forgetpasswd</title>
 </head>
-<body>
-    <h1>Récupération de mot de passe</h1>
+<body class="z site">
+    <div class="z header">
+        <div class=" header__menu">
+            <div class="square_btn">
+                <a href="inscription.html.php">S'inscrire</a>&nbsp;&nbsp;
+            </div>
+            <div class="square_btn">
+                <a href="connexion.html">Se connecter</a>&nbsp;&nbsp;
+            </div>
+            <div class="square_btn">
+                <a href="forget_pwd.html">Mot de passe oublié</a>&nbsp;&nbsp;
+            </div>
+        </div>
+    </div>
+<div class="z section">
+    <div class="formu">
+    <h3>Récupération du mot de passe</h3>
+    <div class="form2">
     <form method="POST" action="forgetpasswd.php">
         <input type="email" placeholder="Votre adresse mail" name="mail"><br>
         <input type="submit" name="oublie" value="Valider"/><br>
     </form>
+    </div>
+    </div>
+</div>
+<div class="z footer">
+    <div>Camagru</div>
+ <div>&copy;2020</div>
+</div>
 </body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="flexmodel.css">
-    <title>Inscription</title>
-</head>
-<body>
-    <h1>Récupération de mot de passe</h1>
-    <form method="POST" action="">
-        <input type="email" placeholder="Votre adresse mail"><br>
-        <input type="submit" name="form_forget_pwd" value="Valider"/><br>
-        <a href="index.php" id="home"><span>Retour page d'accueil</span></a>        
-    </form>
-</body>
-</html>
-
--->

@@ -46,22 +46,34 @@ require "merge.php";?>
                                     <input type="radio" id="filter3" name="filtre">
                                     <img src="img/leo.png" alt="leo" height="70" width="70">
                                     </div>
-                                </div>    
+                                </div>
                     <div class="z section-menu__cam">
                         <div><video id="video" width="300px" height="300px" autoplay></video></div>
                         <div><button id="snap" disabled>Snap Photo</button></div>
                         <div class="upload">
-                            <form action="upload.php" method="post" enctype="multipart/form-data">
-                            <input type="file" name="fileToUpload" id="fileToUpload">
-                            <input type="submit" value="Upload Image" name="submit">
-                            </form>
+                            <form method="post" enctype="multipart/form-data">
+                            <input type="file" name="files[]" multiple />
+                            <input type="submit" value="Upload File" name="submit" />
+                        </form>
                         </div>
                     </div>
                 </div>
                 <div class="z section-menu-images"> 
                     <div class="z canvas">
                         <canvas id="canvas" width="300px" height="200px"></canvas>
-                    </div>    
+                    </div>
+                    <div class="space"></div>
+                    <div class="z gallerie">
+                        <div>
+                        <img src="image.png" alt="image" height="200" width="200">
+                        </div>
+                        <div>
+                        <img src="image.png" alt="image" height="200" width="200">
+                        </div>
+                        <div>
+                        <img src="image.png" alt="image" height="200" width="200">
+                        </div>
+                    </div>
                 </div>
              </div>
         </div>
@@ -72,5 +84,6 @@ require "merge.php";?>
         <script src="JS/cam.js"></script>
         <script src="JS/image.js"></script>
         <script src="JS/filtre.js"></script>
+        <script src="JS/upload.js"></script>
 </body>
 </html>

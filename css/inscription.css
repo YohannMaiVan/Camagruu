@@ -6,8 +6,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    height: 72px;
-    background-color: rgb(136, 163, 170);
+    height: 55px;
+    background-color: rgb(101, 204, 224);
 }
 
 .header__menu {
@@ -58,6 +58,7 @@
     flex-direction: row;
     justify-content: space-between;
     background-color: rgb(159, 159, 172);
+    height: 20px;
 }
 
 .site { 
@@ -66,24 +67,65 @@
         flex-direction: column;
 }
 
-.formu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 5px 5px 15px 5px #09af78;
-    height: 160px;
-    width: 340px;
-    
+/*
+h1 {
+    padding: 3px 160px; 
 }
 
 .pseudo {
-    padding: 0px 80px; 
+    padding: 0px 220px; 
+}
+
+.mail {
+    padding: 0px 150px; 
 }
 
 .mdp {
-    padding: 0px 55px; 
+    padding: 0px 195px; 
+}
+
+.confirm {
+    padding: 0px 167px; 
 }
 
 .submit {
-    padding: 0px 160px; 
+    padding: 0px 260px; 
+}
+
+.co {
+    padding: 0px 235px; 
+}
+
+.retour {
+    padding: 0px 235px; 
+}
+
+*/
+
+.formu {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 15px 5px #09af78;
+    padding: 4px;
+}
+
+.form2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.field {
+
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 3px;
+}
+
+
+.field label {
+    width: 50%;
+}
+
+.form3 {
+    text-align: center;
 }

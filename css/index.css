@@ -137,3 +137,14 @@ box-shadow: 5px 5px 15px 5px #000000;
 .upload {
     padding: 30px 40px;
 }
+
+.gallerie {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
+.space {
+    height: 15%;
+}
