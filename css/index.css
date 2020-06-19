@@ -102,3 +102,23 @@ padding: 5px 0px;
     justify-content: space-evenly;
     width: 100%;
 }
+
+.galerie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 98%;
+    padding: 3%;
+
+}
+
+.x {
+    border:5px solid;
+    border-image: linear-gradient(to bottom, #2b68c4 0%,#cf2d6e 100%)1;
+}
+
+
+#canvas {
+    display: none;
+}
