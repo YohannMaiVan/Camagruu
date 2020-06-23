@@ -40,11 +40,11 @@ if(!empty($_POST))
                 $to = $verification_mail['mail'];
                 
                 $emailFrom = 'maris.grinbergs1301@gmail.com';
-              $header="MIME-Version: 1.0\r\n";
-              $header.= "From: " . $emailFrom . "\r\n";
-              $header.='Content-Type:text/html; charset="uft-8"'."\n";
-              $header.='Content-Transfer-Encoding: 8bit';
-              $message = "Bonjour ".$verification_mail['mail']." voici votre nouveau mdp : ".$new_pass."";
+                $header="MIME-Version: 1.0\r\n";
+                $header.= "From: " . $emailFrom . "\r\n";
+                $header.='Content-Type:text/html; charset="uft-8"'."\n";
+                $header.='Content-Transfer-Encoding: 8bit';
+                $message = "Bonjour ".$verification_mail['mail']." voici votre nouveau mdp : ".$new_pass."";
 
                 var_dump ($new_pass_crypt);
                 mail($to, $objet, $message, $header);

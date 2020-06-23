@@ -95,5 +95,16 @@ public static function fetchMiniatures() {
 			}
 			return $result;
 			}
+
+		public static function selectMail() {
+			try {
+				$statement = self::prepareStatement("SELECT mail  FROM users INNER JOIN images ON images.user_image = users.user WHERE images.id_image = ?");
+				$statement->execute(array($_GET['id']));
+				$result = $statement->fetchAll();
+			} catch (PDOException $e) {
+				echo 'Failed showing commentaries : ' . $e->getMessage();				
+			}
+			return $result;
+		}
 	}
 ?>

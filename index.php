@@ -65,12 +65,12 @@ require (__DIR__ .'/model/gallery.php');
                 <div class="z section-menu-images"> 
 
                     <div class="z canvas">
-                        <canvas id="canvas" width="600px" height="450px"></canvas>
+                        <canvas id="canvas" width="500px" height="500px"></canvas>
                         <?php
                             $donnees = gallery::fetchMiniatures();
                             foreach ($donnees as $miniatures)
                             { ?>
-                            <img src="<?php echo $miniatures['path_image'];?>""  width="150px" height="112,5px">
+                            <img src="<?php echo $miniatures['path_image'];?>" width="200px" height="200px">
                             <?php
                             }
                         ?>
