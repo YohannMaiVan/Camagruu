@@ -36,12 +36,11 @@ public static function addLike($id, $like, $login, $getid) {
 
 	public static function delLike($getlogin, $getid) {
 		try {
-			$statement = self::prepStatement("DELETE from likes WHERE likes_id_image = ? AND likes_user = ?");
+			$statement = self::prepStatement("DELETE from likes WHERE likes_user = ? AND likes_id_image = ?");
 			$statement->execute(array($getlogin, $getid));
 		} catch (PDOException $e) {
-			echo 'Failed adding a commentary : ' . $e->getMessage();				
+			echo 'Fail DELETE : ' . $e->getMessage();				
 		}
-		return $statement;
 		}	
 
 	public static function fetchLikes($getid) {
