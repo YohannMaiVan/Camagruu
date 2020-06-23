@@ -24,7 +24,7 @@ require (__DIR__ .'/model/gallery.php');
                 ?></div>
                 <div class="header__menu">
                 <a href="index.php" class="square_btn">Accueil</a>&nbsp;                    
-                <a href="profil.html.php" id="profile" class="square_btn">Mon profil</a>&nbsp;
+                <a href="profil.php" id="profile" class="square_btn">Mon profil</a>&nbsp;
                 <a href="galerie.php" class="square_btn">Galerie</a>&nbsp;
                 <a href="deconnexion.php" class="square_btn">Se déconnecter</a>&nbsp;                
                 </div>
@@ -70,7 +70,7 @@ require (__DIR__ .'/model/gallery.php');
                             $donnees = gallery::fetchMiniatures();
                             foreach ($donnees as $miniatures)
                             { ?>
-                            <img src="<?php echo $miniatures['path_image'];?>""  width="150px" height="112,5px">
+                            <img src="<?php echo $miniatures['path_image'];?>"  width="150px" height="112,5px">
                             <?php
                             }
                         ?>
