@@ -20,11 +20,8 @@ if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0 AND $_GE
 
  $depart = ($currentPage - 1) * $picsPerPage;
 
- if (isset($_SESSION['login']) && isset($_POST['deletePic']) && isset($_POST['id_picture'])) {
+ if (isset($_SESSION['login']) && isset($_POST['deletePic']) && isset($_POST['id_picture']))
 	 $deletePic = gallery::deletePicture();
-	 echo "CA A MARCHE";
- }
- var_dump($_POST);
  
 /* 
  $req = $bdd->prepare("SELECT user_image from images WHERE id_image = ?");

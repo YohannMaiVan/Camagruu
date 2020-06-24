@@ -33,16 +33,14 @@
                 <div class="fivePics x">
                 <a href="commentaires.php?id=<?php echo $pics['id_image'];?>">
                 <img src="<?php echo $pics['path_image'];?>"  width="100%" height="225px"/></a>
-                <?php echo $pics['id_image'];
+                <?php
                     $likes = likeClass::fetchLikes($pics['id_image']);
                     $likes = $likes->rowCount();
                 ?>
 
                 <!-- 1 for likes 2 for dislikes -->                           
-                <?php if (isset ($_SESSION['login']) && ($pics['user_image'] == $_SESSION['login'])){
-                     echo $pics['id_image'];?>
+                <?php if (isset ($_SESSION['login']) && ($pics['user_image'] == $_SESSION['login'])) { ?>
                      <a href="likes.php?t=1&amp;id=<?php echo $pics['id_image'] ?>">J'aime</a> <?php echo $likes ?> <br>
-                     <a href="likes.php?t=2&amp;id=<?php echo $pics['id_image'] ?>">Je n'aime pas</a> (1) <br>
                 <form method="post">
                     <input type="hidden" name="id_picture" value="<?php echo $pics['id_image'];?>"/>
                     <input type="submit" name ="deletePic" value="Supprimer la photo" />

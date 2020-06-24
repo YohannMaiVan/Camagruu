@@ -56,6 +56,15 @@ public static function fetchMiniatures() {
 			return $result;
 			}
 
+		public static function insertPicture($login, $path) {
+			try {
+					$statement = self::prepareStatement("INSERT INTO images(user_image, path_image) VALUES(?, ?)");
+					$statement->execute(array($login, $path));
+			} catch (PDOException $e) {
+			}
+			return $statement;
+			}
+
 		public static function getPicture() {
 			try {
 				$statement = self::prepareStatement("SELECT * from images where id_image = ?");

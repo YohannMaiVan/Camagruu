@@ -3,6 +3,7 @@ session_start();
 require('Database/coDatabase.php');
 require (__DIR__ .'/model/gallery.php');
 header('Content-Type: text/html; charset=utf-8');
+
 if (isset ($_GET['id']) && !empty($_GET['id'])) {
 	$getid = htmlspecialchars($_GET['id']);
 	$picture = gallery::getPicture();

@@ -9,7 +9,6 @@ if (isset($_GET['t'], $_GET['id'], $getlogin) && !empty($_GET['t']) && !empty($_
 	$getid = (int) $_GET['id'];
 	$getLike = (int) $_GET['t'];
 	$picture = gallery::getPicture();
-	var_dump($picture);
 
 	$check = likeClass::checkNumLikes($getid, $getlogin);
 	/* LIKE insertion into DB */
@@ -17,17 +16,12 @@ if (isset($_GET['t'], $_GET['id'], $getlogin) && !empty($_GET['t']) && !empty($_
 		if ($picture['id_image'] == $getid) {
 			
 			if($getLike == 1) {
-				if ($check->rowCount() == 1) {
-					echo "valeur de login $getlogin et id $getid valeur de getlike : $getLike";
-				likeClass::delLike($getlogin, $getid);
-				echo "------------->TEST DU DISLIKE<------------";
-				} 
+				
+				if ($check->rowCount() == 1)
+					likeClass::delLike($getlogin, $getid);
 
-				else {
-
-				likeClass::addLike(NULL, 1, $getlogin, $getid);
-				echo "---------->TEST DU LIKE<----------";
-				}
+				else
+					likeClass::addLike(NULL, 1, $getlogin, $getid);
 			}
 		} 
 		

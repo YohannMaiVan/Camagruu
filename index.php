@@ -23,7 +23,8 @@ require (__DIR__ .'/model/gallery.php');
                 }
                 ?></div>
                 <div class="header__menu">
-                <a href="index.php" class="square_btn">Accueil</a>&nbsp;                    
+                <a href="index.php" class="square_btn">Accueil</a>&nbsp;     
+                <a href="index.html" class="square_btn">Se connecter</a>&nbsp;                                                   
                 <a href="profil.php" id="profile" class="square_btn">Mon profil</a>&nbsp;
                 <a href="galerie.php" class="square_btn">Galerie</a>&nbsp;
                 <a href="deconnexion.php" class="square_btn">Se déconnecter</a>&nbsp;                
@@ -51,12 +52,20 @@ require (__DIR__ .'/model/gallery.php');
                                 </div>
                     <div class="z section-menu__cam">
                         <div><video id="video" width="300px" height="300px" autoplay></video></div>
-                        <div><button id="snap" disabled>Snap Photo</button></div>
+						<div><button id="snap" disabled>Snap Photo</button></div>
+
+
+
+						<div style="color:red;"><p><?php if(isset($error)) echo $error; ?></p></div>
                         <div class="upload">
-                            <form method="post" enctype="multipart/form-data">
-                            <input type="file" name="files[]" multiple />
-                            <input type="submit" value="Upload File" name="submit" />
+                            <form method="post" action ="index.php" enctype="multipart/form-data">
+                            <input type="file" name="files" accept=".jpg, .jpeg, .png"/>
+                            <input type="submit" value="Upload File" name="submitFile" />
                         </form>
+                        <?php 
+                        if (isset($_POST['submitFile']))
+                            require('upload.php');
+                        ?>                        
                         </div>
                     </div>
                 </div>
@@ -65,7 +74,7 @@ require (__DIR__ .'/model/gallery.php');
                 <div class="z section-menu-images"> 
 
                     <div class="z canvas">
-                        <canvas id="canvas" width="500px" height="500px"></canvas>
+                        <canvas id="canvas" width="600px" height="450px"></canvas>
                         <?php
                             $donnees = gallery::fetchMiniatures();
                             foreach ($donnees as $miniatures)
@@ -87,6 +96,6 @@ require (__DIR__ .'/model/gallery.php');
         <script src="JS/cam.js"></script>
         <script src="JS/image.js"></script>
         <script src="JS/filtre.js"></script>
-        <script src="JS/upload.js"></script>
+    <!--    <script src="JS/upload.js"></script> -->
 </body>
 </html>

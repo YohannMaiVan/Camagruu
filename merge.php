@@ -30,8 +30,5 @@ $file = $upload_dir . $_SESSION["login"] . mktime() . ".png";
  # Output straight to the browser.
  //imagepng($image);
 
-print_r($_SESSION);
-
- $sql = $bdd->prepare("INSERT INTO images(user_image, path_image) VALUES(?, ?)");
- $sql->execute(array($_SESSION["login"], $file));
+ gallery::insertPicture($_SESSION["login"], $file);
 ?>

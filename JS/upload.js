@@ -1,7 +1,7 @@
 const url = 'process.php'
 const form = document.querySelector('form')
 
-form.addEventListener('submit', e => {
+form.addEventListener('submitFile', e => {
   e.preventDefault()
 
   const files = document.querySelector('[type=file]').files
