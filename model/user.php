@@ -74,6 +74,19 @@ public static function createStatement($sql) {
 			return $updatepwd;
 		}
 
+		public static function setNotifNo()
+		{
+			$setNotifNo = self::createStatement('UPDATE users SET notifications = ? WHERE user = ?');
+			$setNotifNo->execute(array(0, $_SESSION['login']));
+			return $setNotifNo;
+		}
+
+		public static function setNotifYes()
+		{
+			$setNotifYes = self::createStatement('UPDATE users SET notifications = ? WHERE user = ?');
+			$setNotifYes->execute(array(1, $_SESSION['login']));
+			return $setNotifYes;
+		}
 
 		public static function connect_user()
 		{
@@ -94,17 +107,32 @@ public static function createStatement($sql) {
 		$req->execute(array($pseudo, $key));
 		$userexist = $req->rowCount();
 		if($userexist == 1) {
-      $user = $req->fetch();
-      if($user['confirm_account'] == 0) {
-         $updateuser = self::createStatement("UPDATE users SET confirm_account = 1 WHERE user = ? AND confirmkey = ?");
-         $updateuser->execute(array($pseudo,$key));
-         echo "Votre compte a bien été confirmé !";
-      } else {
-         echo "Votre compte a déjà été confirmé !";
-      }
-   } else {
-      echo "L'utilisateur n'existe pas !";
-   }
+			$user = $req->fetch();
+			if($user['confirm_account'] == 0)
+			{
+				$updateuser = self::createStatement("UPDATE users SET confirm_account = 1 WHERE user = ? AND confirmkey = ?");
+				$updateuser->execute(array($pseudo,$key));
+				echo "Votre compte a bien été confirmé !";
+			} 
+			else
+			{
+				echo "Votre compte a déjà été confirmé !";
+			}
+		   }
+		   else 
+		   	{
+				  echo "L'utilisateur n'existe pas !";
+			}
+	}
 
+	public static function selectUserNotif($mail) {
+		try {
+			$statement = self::createStatement("SELECT * FROM users WHERE mail = ?");
+			$statement->execute(array($mail));
+			$result = $statement->fetch();
+		} catch (PDOException $e) {
+			echo 'Fail : ' . $e->getMessage();				
+		}
+		return $result;
 	}
 }

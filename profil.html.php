@@ -51,6 +51,14 @@
 		<label>Confirmation du mot de passe :</label>
 		<input type="password" name="newmdp2" placeholder="..."/>
 		</div>
+		<fieldset>
+		<legend>Recevoir un mail lorsque une de vos images est commentée </legend>
+		<input type="radio" id="ouiMail" name="notifMail" value="OUI" checked/>
+		<label for="ouiMail">OUI</label>		
+		<input type="radio" id="nonMail" name="notifMail" value="NON"/>
+		<label for="nonMail">NON</label>		
+		
+		</fieldset>
 		<div class="maj">
 			<input type="submit" name="submit" value="Mettre à jour mon profil !"/>
 		</div>

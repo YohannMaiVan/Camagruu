@@ -17,7 +17,8 @@ function setup($dbh,$dbname)
     date_user DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
     confirmkey TEXT NOT NULL,
     confirm_account INT(1) NOT NULL DEFAULT 0,
-    n_mdp INT(1) NOT NULL DEFAULT 0
+    n_mdp INT(1) NOT NULL DEFAULT 0,
+    notifications INT(1) NOT NULL DEFAULT 1
         )";
     $result = $dbh->exec($sql);
 

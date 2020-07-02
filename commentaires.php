@@ -2,6 +2,7 @@
 session_start();
 require('Database/coDatabase.php');
 require (__DIR__ .'/model/gallery.php');
+require (__DIR__ .'/model/user.php');
 header('Content-Type: text/html; charset=utf-8');
 
 if (isset ($_GET['id']) && !empty($_GET['id'])) {
@@ -19,13 +20,15 @@ if (isset($_POST['submit_com'])) {
 		
 			$msg = "bonjour vous avez recu un nouveau commentaire";
 			$objet = 'nouveau commentaire';
-			$emailFrom = 'maris.grinbergs1301@gmail.com';
+			$emailFrom = 'lilijordan93@gmail.com';
             $header="MIME-Version: 1.0\r\n";
             $header.= "From: " . $emailFrom . "\r\n";
             $header.='Content-Type:text/html; charset="uft-8"'."\n";
 			$header.='Content-Transfer-Encoding: 8bit';
 			
-            mail($mail[0]["mail"], $objet, $msg, $header);
+			$userPref = user::selectUserNotif($mail[0]["mail"]);
+			if ($userPref['mail'] == $mail[0]["mail"] && $userPref['notifications'] == 1)
+            	mail($mail[0]["mail"], $objet, $msg, $header);
 		}
 		else 
 			$c_msg = "Vous devez être connecté pour poster un commentaire";

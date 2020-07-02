@@ -32,7 +32,7 @@ if(isset($_POST['login']) AND isset($_POST['mail']) AND isset($_POST['passwd']) 
               $date_user = date('Y-m-d H:i:s');
               user::insert_user($login, $password, $mail, $date_user, $key);
 
-              $emailFrom = 'test@camagru.com';
+              $emailFrom = 'lilijordan93@gmail.com';
               $header="MIME-Version: 1.0\r\n";
               $header.= "From: " . $emailFrom . "\n";
               $header.='Content-Type:text/html; charset="uft-8"'."\n";

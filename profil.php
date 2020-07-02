@@ -50,6 +50,22 @@ if(!empty($_POST['newmdp1']) AND !empty($_POST['newmdp2']))
 	}
 }
 
+# NOTIFICATIONS
+var_dump($_POST);
+
+if(!empty($_POST['notifMail']))
+{
+	if ($_POST['notifMail'] == 'NON')
+	{
+		user::setNotifNo();
+	}
+	else 
+	{
+		user::setNotifYes();
+	}
+}
+
+
 require ('profil.html.php');
 ?>
 

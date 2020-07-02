@@ -13,7 +13,7 @@
                     <a href="inscription.html.php">S'inscrire</a>&nbsp;&nbsp;
                 </div>
                 <div class="square_btn">
-                    <a href="connexion.html">Se connecter</a>&nbsp;&nbsp;
+                    <a href="index.html">Se connecter</a>&nbsp;&nbsp;
                 </div>
                 <div class="square_btn">
                     <a href="forget_pwd.html">Mot de passe oublié</a>&nbsp;&nbsp;
